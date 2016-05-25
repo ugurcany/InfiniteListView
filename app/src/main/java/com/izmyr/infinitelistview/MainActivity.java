@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.izmyr.views.InfiniteListView;
 
@@ -16,14 +17,11 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final int ITEM_COUNT_TO_LOAD = 25;
     private final int ITEM_COUNT_LIMIT = 200;
     private final int TIME_TO_LOAD = 1500; //in ms
 
     private int itemOffset = 0;
-    private int itemCount = 25;
-
-    @BindView(R.id.infiniteListView)
-    InfiniteListView infiniteListView;
 
     private View loadingView;
     private ArrayList<String> itemList;
@@ -70,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     //ADD NEW ITEMS TO LIST
-                    for (int i = itemOffset; i < itemOffset + itemCount; i++) {
+                    for (int i = itemOffset; i < itemOffset + ITEM_COUNT_TO_LOAD; i++) {
                         String item = "Item #" + i;
                         infiniteListView.addNewItem(item);
                     }
-                    itemOffset += itemCount;
-                    Log.d("InfiniteListView", itemOffset + " " + itemCount);
+                    itemOffset += ITEM_COUNT_TO_LOAD;
+                    Log.d("InfiniteListView", "Current item count = " + itemOffset);
                 }
 
                 infiniteListView.stopLoading();
@@ -92,12 +90,19 @@ public class MainActivity extends AppCompatActivity {
 
     //DO THIS ON ITEM CLICK
     public void clickItem(final int position) {
-        Snackbar.make(infiniteListView, "Item clicked: " + position, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(container, "Item clicked: " + position, Snackbar.LENGTH_SHORT).show();
     }
 
     //DO THIS ON ITEM LONG-CLICK
     public void longClickItem(int position) {
-        Snackbar.make(infiniteListView, "Item long-clicked: " + position, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(container, "Item long-clicked: " + position, Snackbar.LENGTH_SHORT).show();
     }
+
+
+    @BindView(R.id.container)
+    LinearLayout container;
+
+    @BindView(R.id.infiniteListView)
+    InfiniteListView infiniteListView;
 
 }

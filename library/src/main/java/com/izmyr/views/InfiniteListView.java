@@ -129,11 +129,15 @@ public class InfiniteListView<T> extends FrameLayout {
 
     public void startLoading(){
         loading = true;
-        listView.addFooterView(loadingView);
+        if(!swipeRefreshLayout.isRefreshing()) {
+            listView.addFooterView(loadingView);
+        }
     }
 
     public void stopLoading(){
-        listView.removeFooterView(loadingView);
+        if(!swipeRefreshLayout.isRefreshing()) {
+            listView.removeFooterView(loadingView);
+        }
         swipeRefreshLayout.setRefreshing(false);
         loading = false;
     }

@@ -69,6 +69,7 @@ public class MyInfiniteListAdapter<T> extends InfiniteListAdapter<T> {
         mainActivity.longClickItem(position);
     }
 
+
     static class ViewHolder {
         TextView text;
     }
