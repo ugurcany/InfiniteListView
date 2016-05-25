@@ -15,19 +15,19 @@ See the `app` module for the sample usage of **InfiniteListView** and **Infinite
 
 
 ## <a name="classes"></a>Classes
-#### <a name="inflistview"></a>InfiniteListView (extends FrameLayout)
+#### <a name="inflistview"></a>InfiniteListView (extends *FrameLayout*)
 - Includes the following UI components:
-    - SwipeRefreshLayout
-    - ListView
+    - *SwipeRefreshLayout*
+    - *ListView*
 - Initialize it as follows:
     - `infiniteListView.init(adapter, loadingView);`
-        - `adapter` (InfiniteListAdapter)
+        - `adapter` (*InfiniteListAdapter*)
             - Extend it to create your own adapter
                 - Override its `onNewLoadRequired()` method to load new items when required
                 - Override its `onRefresh()` method to set what to do on swipe-to-refresh
                 - Override its `onItemClick(position)` method to set what to do on item click
                 - Override its `onItemLongClick(position)` method to set what to do on item long-click
-        - `loadingView` (View)
+        - `loadingView` (*View*)
             - Footer view to be displayed while loading new items
 - Includes the following methods:
     - `infiniteListView.addNewItem(item);` -> adds new item to list
@@ -36,17 +36,17 @@ See the `app` module for the sample usage of **InfiniteListView** and **Infinite
     - `infiniteListView.stopLoading();` -> call this after item loading ends
     - `infiniteListView.setEndOfLoading();` -> call this when there is no more item to load
 - Custom XML attributes:
-    - `swipeRefreshIndicatorColor` (color)
+    - `swipeRefreshIndicatorColor` (*color*)
 
 
 
-#### <a name="inflistadapter"></a>InfiniteListAdapter (abstract class, extends ArrayAdapter)
+#### <a name="inflistadapter"></a>InfiniteListAdapter (abstract class, extends *ArrayAdapter*)
 - Constructor takes the following params:
-    - `activity` (Activity)
-    - `itemLayoutRes` (int)
+    - `activity` (*Activity*)
+    - `itemLayoutRes` (*int*)
         - e.g., `R.layout.item_text`
-    - `itemList` (ArrayList)
-- Includes the following abstract methods
+    - `itemList` (*ArrayList*)
+- Includes the following abstract methods:
     - `onNewLoadRequired()`
     - `onRefresh()`
     - `onItemClick(position)`
