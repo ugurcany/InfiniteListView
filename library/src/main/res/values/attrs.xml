@@ -2,5 +2,7 @@
 <resources>
     <declare-styleable name="InfiniteListView">
         <attr name="swipeRefreshIndicatorColor" format="color"/>
+        <attr name="scrollbarVisible" format="boolean"/>
+        <attr name="dividerVisible" format="boolean"/>
     </declare-styleable>
 </resources>

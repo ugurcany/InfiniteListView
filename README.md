@@ -1,4 +1,4 @@
-# InfiniteListView [![JitPack](https://jitpack.io/v/ugurcany/InfiniteListView.svg)](https://jitpack.io/#ugurcany/InfiniteListView) [![API](https://img.shields.io/badge/API-11%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=11) [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+# InfiniteListView [![JitPack](https://jitpack.io/v/ugurcany/InfiniteListView.svg)](https://jitpack.io/#ugurcany/InfiniteListView)
 
 **InfiniteListView** is a custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list. It also supports swipe-to-refresh behavior.
 
@@ -30,13 +30,15 @@ See the `app` module for the sample usage of **InfiniteListView** and **Infinite
             
 - Includes the following methods:
     - `infiniteListView.addNewItem(item);` -> adds new item to list
-    - `infiniteListView.clearList();` -> clears entire list (and triggers `onNewLoadRequired()`)
+    - `infiniteListView.clearList();` -> clears entire list
     - `infiniteListView.startLoading();` -> call this before item loading starts
     - `infiniteListView.stopLoading();` -> call this after item loading ends
-    - `infiniteListView.setEndOfLoading();` -> call this when there is no more item to load
+    - `infiniteListView.setEndOfLoading(isEndOfLoading);` -> call this to let the view know whether there is more to load or not
     
 - Custom XML attributes:
     - `swipeRefreshIndicatorColor` (*color*)
+    - `scrollbarVisible` (*boolean*)
+    - `dividerVisible` (*boolean*)
 
 
 

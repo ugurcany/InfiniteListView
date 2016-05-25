@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         infiniteListView.init(adapter, loadingView);
 
-        refreshList();
+        loadNewItems();
     }
 
     //SIMULATES ITEM LOADING
@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     itemOffset += ITEM_COUNT_TO_LOAD;
                     Log.d("InfiniteListView", "Current item count = " + itemOffset);
+
+                    infiniteListView.setEndOfLoading(false);
                 }
 
                 infiniteListView.stopLoading();
@@ -84,12 +86,12 @@ public class MainActivity extends AppCompatActivity {
     //DO THIS ON SWIPE-REFRESH
     public void refreshList() {
         itemOffset = 0;
-        infiniteListView.setEndOfLoading(false);
-        infiniteListView.clearList(); //TRIGGERS ONNEWLOADREQUIRED
+        infiniteListView.clearList();
+        loadNewItems();
     }
 
     //DO THIS ON ITEM CLICK
-    public void clickItem(final int position) {
+    public void clickItem(int position) {
         Snackbar.make(container, "Item clicked: " + position, Snackbar.LENGTH_SHORT).show();
     }
 

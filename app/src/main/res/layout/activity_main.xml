@@ -11,6 +11,8 @@
         android:id="@+id/infiniteListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:swipeRefreshIndicatorColor="@color/colorAccent" />
+        app:swipeRefreshIndicatorColor="@color/colorAccent"
+        app:scrollbarVisible="true"
+        app:dividerVisible="true" />
 
 </LinearLayout>

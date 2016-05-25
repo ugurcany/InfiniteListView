@@ -21,7 +21,7 @@ public class InfiniteListView<T> extends FrameLayout {
     private boolean loading = false;
     private View loadingView;
 
-    private boolean endOfLoading = true;
+    private boolean isEndOfLoading = true;
 
     private InfiniteListAdapter infiniteListAdapter;
 
@@ -54,6 +54,7 @@ public class InfiniteListView<T> extends FrameLayout {
         });
 
         listView = (ListView) view.findViewById(R.id.listView);
+        listView.setFooterDividersEnabled(false);
 
         //XML CONFIG
         if(attrs != null) {
@@ -63,6 +64,16 @@ public class InfiniteListView<T> extends FrameLayout {
                 //SWIPE-REFRESH INDICATOR COLOR
                 int swipeRefreshIndicatorColor = typedArray.getColor(R.styleable.InfiniteListView_swipeRefreshIndicatorColor, context.getResources().getColor(android.R.color.black));
                 swipeRefreshLayout.setColorSchemeColors(swipeRefreshIndicatorColor);
+
+                //SCROLLBAR VISIBILITY
+                boolean scrollbarVisible = typedArray.getBoolean(R.styleable.InfiniteListView_scrollbarVisible, true);
+                listView.setVerticalScrollBarEnabled(scrollbarVisible);
+
+                //DIVIDER VISIBILITY
+                boolean dividerVisible = typedArray.getBoolean(R.styleable.InfiniteListView_dividerVisible, true);
+                if(!dividerVisible) {
+                    listView.setDividerHeight(0);
+                }
 
             } finally {
                 typedArray.recycle();
@@ -75,7 +86,6 @@ public class InfiniteListView<T> extends FrameLayout {
 
         this.infiniteListAdapter = infiniteListAdapter;
         listView.setAdapter(infiniteListAdapter);
-        listView.setFooterDividersEnabled(false);
 
         this.loadingView = loadingView;
 
@@ -86,7 +96,7 @@ public class InfiniteListView<T> extends FrameLayout {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if(endOfLoading)
+                if(isEndOfLoading)
                     return;
 
                 int lastVisibleItem = visibleItemCount + firstVisibleItem;
@@ -124,6 +134,7 @@ public class InfiniteListView<T> extends FrameLayout {
     }
 
     public void clearList(){
+        isEndOfLoading = true;
         infiniteListAdapter.clearList();
     }
 
@@ -142,8 +153,8 @@ public class InfiniteListView<T> extends FrameLayout {
         loading = false;
     }
 
-    public void setEndOfLoading(boolean endOfLoading) {
-        this.endOfLoading = endOfLoading;
+    public void setEndOfLoading(boolean isEndOfLoading) {
+        this.isEndOfLoading = isEndOfLoading;
     }
 
 }
