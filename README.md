@@ -1,52 +1,81 @@
 # InfiniteListView
+[![](https://jitpack.io/v/ugurcany/InfiniteListView.svg)](https://jitpack.io/#ugurcany/InfiniteListView)
+[![MIT license](https://img.shields.io/badge/license-MIT-orange.svg)](http://opensource.org/licenses/MIT)
 
 A custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list.
 
 See the `app` module for the sample usage of **InfiniteListView**.
 
+## Table of Contents
+1. [Classes](#classes)
+    - [InfiniteListView](#infinitelistview)
+    - [InfiniteListAdapter](#infinitelistadapter)
+2. [How to use](#howtouse)
+3. [License](#license)
+
+
+
+## <a name="classes"></a>Classes
 #### <a name="infinitelistview"></a>InfiniteListView (extends FrameLayout)
 - Includes the following UI components:
     - SwipeRefreshLayout
     - ListView
-    
 - Initialize it as follows:
     - `infiniteListView.init(adapter, loadingView);`
-        - `adapter` (**InfiniteListAdapter**)
+        - `adapter` (InfiniteListAdapter)
             - Extend it to create your own adapter
                 - Override its `onNewLoadRequired()` method to load new items when required
                 - Override its `onRefresh()` method to set what to do on swipe-to-refresh
                 - Override its `onItemClick(position)` method to set what to do on item click
                 - Override its `onItemLongClick(position)` method to set what to do on item long-click
         - `loadingView` (View)
-            - Footer view to be displayed while loading new items
-            
+            - Footer view to be displayed while loading new items 
 - Includes the following methods:
     - `infiniteListView.addNewItem(item);` -> adds new item to list
     - `infiniteListView.clearList();` -> clears entire list (and triggers `onNewLoadRequired()`)
     - `infiniteListView.startLoading();` -> call this before item loading starts
     - `infiniteListView.stopLoading();` -> call this after item loading ends
     - `infiniteListView.setEndOfLoading();` -> call this when there is no more item to load
-    
 - Custom XML attributes:
     - `swipeRefreshIndicatorColor` (color)
-    
-    
-    
+
+
+
 #### <a name="infinitelistadapter"></a>InfiniteListAdapter (abstract class, extends ArrayAdapter)
 - Constructor takes the following params:
     - `activity` (Activity)
     - `itemLayoutRes` (int)
         - e.g., `R.layout.item_text`
     - `itemList` (ArrayList)
-    
 - Includes the following abstract methods
     - `onNewLoadRequired()`
     - `onRefresh()`
     - `onItemClick(position)`
     - `onItemLongClick(position)`
-    
-    
-### <a name="license"></a>License
+
+
+
+## <a name="howtouse"></a>How to use
+**Step 1.** Add the JitPack repository in your root `build.gradle` at the end of repositories:
+```
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+**Step 2.** Add the dependency:
+```
+dependencies {
+    compile 'com.github.ugurcany:InfiniteListView:X.Y.Z'
+}
+```
+
+
+
+## <a name="license"></a>License
 ```
 The MIT License (MIT)
 
