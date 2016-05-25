@@ -1,4 +1,4 @@
-# InfiniteListView [![JitPack](https://jitpack.io/v/ugurcany/InfiniteListView.svg)](https://jitpack.io/#ugurcany/InfiniteListView) [![Build Status](https://travis-ci.org/ugurcany/InfiniteListView.svg?branch=master)](https://travis-ci.org/ugurcany/InfiniteListView)
+# InfiniteListView [![JitPack](https://jitpack.io/v/ugurcany/InfiniteListView.svg)](https://jitpack.io/#ugurcany/InfiniteListView) [![Build Status](https://travis-ci.org/ugurcany/InfiniteListView.svg?branch=master)](https://travis-ci.org/ugurcany/InfiniteListView) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-InfiniteListView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3631)
 
 **InfiniteListView** is a custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list. It also supports swipe-to-refresh behavior.
 
