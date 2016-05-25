@@ -7,7 +7,7 @@
 
 See the `app` module for the sample usage of **InfiniteListView**.
 
-![How it works](https://github.com/ugurcany/InfiniteListView/raw/gif/infinitelistview.gif)
+![How it works](https://github.com/ugurcany/InfiniteListView/gif/infinitelistview.gif)
 
 
 
