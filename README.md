@@ -12,8 +12,8 @@ See the `app` module for the sample usage of **InfiniteListView**.
 ## Table of Contents
 1. [How it works](#howitworks)
 2. [Classes](#classes)
-    - [InfiniteListView](#infinitelistview)
-    - [InfiniteListAdapter](#infinitelistadapter)
+    - [InfiniteListView](#inflistview)
+    - [InfiniteListAdapter](#inflistadapter)
 3. [How to use](#howtouse)
 4. [License](#license)
 
@@ -25,7 +25,7 @@ See the `app` module for the sample usage of **InfiniteListView**.
 
 
 ## <a name="classes"></a>Classes
-#### <a name="infinitelistview"></a>InfiniteListView (extends FrameLayout)
+#### <a name="inflistview"></a>InfiniteListView (extends FrameLayout)
 - Includes the following UI components:
     - SwipeRefreshLayout
     - ListView
@@ -50,7 +50,7 @@ See the `app` module for the sample usage of **InfiniteListView**.
 
 
 
-#### <a name="infinitelistadapter"></a>InfiniteListAdapter (abstract class, extends ArrayAdapter)
+#### <a name="inflistadapter"></a>InfiniteListAdapter (abstract class, extends ArrayAdapter)
 - Constructor takes the following params:
     - `activity` (Activity)
     - `itemLayoutRes` (int)
