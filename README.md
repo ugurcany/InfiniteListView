@@ -2,7 +2,7 @@
 
 A custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list.
 
-See `app` module for sample usage of **InfiniteListView**.
+See the `app` module for the sample usage of **InfiniteListView**.
 
 #### <a name="infinitelistview"></a>InfiniteListView (extends FrameLayout)
 - Includes the following UI components:
@@ -10,7 +10,7 @@ See `app` module for sample usage of **InfiniteListView**.
     - ListView
     
 - Initialize it as follows:
-    - `infiniteListView.init(adapter,loadingView);`
+    - `infiniteListView.init(adapter, loadingView);`
         - `adapter` (**InfiniteListAdapter**)
             - Extend it to create your own adapter
                 - Override its `onNewLoadRequired()` method to load new items when required
