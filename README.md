@@ -20,7 +20,7 @@ See the `app` module for the sample usage of **InfiniteListView**.
 
 
 ## <a name="howitworks"></a>How it works
-![How it works](https://github.com/ugurcany/InfiniteListView/gif/infinitelistview.gif)
+![How it works](https://raw.githubusercontent.com/ugurcany/InfiniteListView/master/gif/infinitelistview.gif)
 
 
 
