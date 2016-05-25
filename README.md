@@ -7,16 +7,20 @@
 
 See the `app` module for the sample usage of **InfiniteListView**.
 
-![How it works](https://github.com/ugurcany/InfiniteListView/gif/infinitelistview.gif)
-
 
 
 ## Table of Contents
-1. [Classes](#classes)
+1. [How it works](#howitworks)
+2. [Classes](#classes)
     - [InfiniteListView](#infinitelistview)
     - [InfiniteListAdapter](#infinitelistadapter)
-2. [How to use](#howtouse)
-3. [License](#license)
+3. [How to use](#howtouse)
+4. [License](#license)
+
+
+
+## <a name="howitworks"></a>How it works
+![How it works](https://github.com/ugurcany/InfiniteListView/gif/infinitelistview.gif)
 
 
 
