@@ -3,7 +3,7 @@
 [![API](https://img.shields.io/badge/API-11%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=11)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-A custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list.
+**InfiniteListView** is a custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list. It also supports swipe-to-refresh behavior.
 
 See the `app` module for the sample usage of **InfiniteListView**.
 
@@ -23,6 +23,7 @@ See the `app` module for the sample usage of **InfiniteListView**.
 - Includes the following UI components:
     - SwipeRefreshLayout
     - ListView
+    
 - Initialize it as follows:
     - `infiniteListView.init(adapter, loadingView);`
         - `adapter` (InfiniteListAdapter)
@@ -32,13 +33,15 @@ See the `app` module for the sample usage of **InfiniteListView**.
                 - Override its `onItemClick(position)` method to set what to do on item click
                 - Override its `onItemLongClick(position)` method to set what to do on item long-click
         - `loadingView` (View)
-            - Footer view to be displayed while loading new items 
+            - Footer view to be displayed while loading new items
+            
 - Includes the following methods:
     - `infiniteListView.addNewItem(item);` -> adds new item to list
     - `infiniteListView.clearList();` -> clears entire list (and triggers `onNewLoadRequired()`)
     - `infiniteListView.startLoading();` -> call this before item loading starts
     - `infiniteListView.stopLoading();` -> call this after item loading ends
     - `infiniteListView.setEndOfLoading();` -> call this when there is no more item to load
+    
 - Custom XML attributes:
     - `swipeRefreshIndicatorColor` (color)
 
@@ -50,6 +53,7 @@ See the `app` module for the sample usage of **InfiniteListView**.
     - `itemLayoutRes` (int)
         - e.g., `R.layout.item_text`
     - `itemList` (ArrayList)
+    
 - Includes the following abstract methods
     - `onNewLoadRequired()`
     - `onRefresh()`
