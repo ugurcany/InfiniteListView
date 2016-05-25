@@ -24,7 +24,7 @@ See the `app` module for the sample usage of **InfiniteListView** and **Infinite
     - `infiniteListView.init(adapter, loadingView);`
         - `adapter` (*InfiniteListAdapter*)
             - Extend it to create your own adapter
-                - Override its `onNewLoadRequired()` method to load new items when required
+                - Override its `onNewLoadRequired()` method to load new items when required (on swipe-to-bottom)
                 - Override its `onRefresh()` method to set what to do on swipe-to-refresh
                 - Override its `onItemClick(position)` method to set what to do on item click
                 - Override its `onItemLongClick(position)` method to set what to do on item long-click
