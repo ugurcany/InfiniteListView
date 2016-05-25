@@ -5,7 +5,7 @@
 
 **InfiniteListView** is a custom Android ListView that gets extended at each time new items are loaded by swiping to the bottom of list. It also supports swipe-to-refresh behavior.
 
-See the `app` module for the sample usage of **InfiniteListView**.
+See the `app` module for the sample usage of **InfiniteListView** and **InfiniteListAdapter**.
 
 
 
