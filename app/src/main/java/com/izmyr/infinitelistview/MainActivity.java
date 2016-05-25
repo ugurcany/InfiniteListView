@@ -1,9 +1,9 @@
 package com.izmyr.infinitelistview;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.support.design.widget.Snackbar;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private final int ITEM_COUNT_LIMIT = 200;
-    private final int TIME_TO_LOAD = 1500;
+    private final int TIME_TO_LOAD = 1500; //in ms
 
     private int itemOffset = 0;
     private int itemCount = 25;
