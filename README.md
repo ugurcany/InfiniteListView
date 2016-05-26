@@ -32,7 +32,7 @@ See the `app` module for the sample usage of **InfiniteListView** and **Infinite
     - `infiniteListView.clearList();` -> clears entire list
     - `infiniteListView.startLoading();` -> call this before item loading starts
     - `infiniteListView.stopLoading();` -> call this after item loading ends
-    - `infiniteListView.setEndOfLoading(isEndOfLoading);` -> call this to let the view know whether there is more to load or not
+    - `infiniteListView.hasMore(hasMore);` -> call this to let the view know whether there is more to load or not
     
 - Custom XML attributes:
     - `swipeRefreshIndicatorColor` (*color*)

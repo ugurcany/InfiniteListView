@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void param) {
                 if(itemOffset >= ITEM_COUNT_LIMIT) {
-                    infiniteListView.setEndOfLoading(true);
+                    infiniteListView.hasMore(false);
                 }
                 else {
                     //ADD NEW ITEMS TO LIST
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     itemOffset += ITEM_COUNT_TO_LOAD;
                     Log.d("InfiniteListView", "Current item count = " + itemOffset);
 
-                    infiniteListView.setEndOfLoading(false);
+                    infiniteListView.hasMore(true);
                 }
 
                 infiniteListView.stopLoading();

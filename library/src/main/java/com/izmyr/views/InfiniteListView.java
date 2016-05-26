@@ -21,7 +21,7 @@ public class InfiniteListView<T> extends FrameLayout {
     private boolean loading = false;
     private View loadingView;
 
-    private boolean isEndOfLoading = true;
+    private boolean hasMore = false;
 
     private InfiniteListAdapter infiniteListAdapter;
 
@@ -96,7 +96,7 @@ public class InfiniteListView<T> extends FrameLayout {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if(isEndOfLoading)
+                if(!hasMore)
                     return;
 
                 int lastVisibleItem = visibleItemCount + firstVisibleItem;
@@ -134,7 +134,7 @@ public class InfiniteListView<T> extends FrameLayout {
     }
 
     public void clearList(){
-        isEndOfLoading = true;
+        hasMore = false;
         infiniteListAdapter.clearList();
     }
 
@@ -153,8 +153,8 @@ public class InfiniteListView<T> extends FrameLayout {
         loading = false;
     }
 
-    public void setEndOfLoading(boolean isEndOfLoading) {
-        this.isEndOfLoading = isEndOfLoading;
+    public void hasMore(boolean hasMore) {
+        this.hasMore = hasMore;
     }
 
 }
