@@ -12,9 +12,6 @@ import com.izmyr.views.InfiniteListView;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
     private final int ITEM_COUNT_TO_LOAD = 25;
@@ -22,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private final int TIME_TO_LOAD = 1500; //in ms
 
     private int itemOffset = 0;
+
+    private LinearLayout container;
+    private InfiniteListView infiniteListView;
 
     private View loadingView;
     private ArrayList<String> itemList;
@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        container = (LinearLayout) findViewById(R.id.container);
+        infiniteListView = (InfiniteListView) findViewById(R.id.infiniteListView);
 
         itemList = new ArrayList<>();
         adapter = new MyInfiniteListAdapter(this, R.layout.item_text, itemList);
@@ -99,12 +101,5 @@ public class MainActivity extends AppCompatActivity {
     public void longClickItem(int position) {
         Snackbar.make(container, "Item long-clicked: " + position, Snackbar.LENGTH_SHORT).show();
     }
-
-
-    @BindView(R.id.container)
-    LinearLayout container;
-
-    @BindView(R.id.infiniteListView)
-    InfiniteListView infiniteListView;
 
 }
