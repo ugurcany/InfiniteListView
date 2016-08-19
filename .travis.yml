@@ -12,6 +12,9 @@ android:
   licenses:
       - android-sdk-license-.+
 
+jdk:
+  - oraclejdk8
+
 before_install:
   - chmod +x gradlew
   - android update sdk --filter extra-android-support --no-ui --force > /dev/null
