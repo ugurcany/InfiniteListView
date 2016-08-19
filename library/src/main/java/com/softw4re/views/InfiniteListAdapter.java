@@ -1,9 +1,10 @@
-package com.izmyr.views;
+package com.softw4re.views;
 
 import android.app.Activity;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class InfiniteListAdapter<T> extends ArrayAdapter<T> {
 
@@ -27,6 +28,11 @@ public abstract class InfiniteListAdapter<T> extends ArrayAdapter<T> {
 
     protected final void addNewItem(T newItem){
         itemList.add(newItem);
+        this.notifyDataSetChanged();
+    }
+
+    protected final void addAll(List<T> newItems){
+        itemList.addAll(newItems);
         this.notifyDataSetChanged();
     }
 

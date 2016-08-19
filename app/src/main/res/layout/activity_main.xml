@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.izmyr.views.InfiniteListView
+    <com.softw4re.views.InfiniteListView
         android:id="@+id/infiniteListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

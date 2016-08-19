@@ -1,10 +1,10 @@
-package com.izmyr.infinitelistview;
+package com.softw4re.infinitelistview;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.izmyr.views.InfiniteListAdapter;
+import com.softw4re.views.InfiniteListAdapter;
 
 import java.util.ArrayList;
 

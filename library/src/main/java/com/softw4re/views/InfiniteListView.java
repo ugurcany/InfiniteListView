@@ -1,19 +1,24 @@
-package com.izmyr.views;
+package com.softw4re.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import java.util.List;
+
 /**
  * Created by ugurcan.yildirim on 11.03.2016.
  */
 public class InfiniteListView<T> extends FrameLayout {
+
+    //private Context context;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListView listView;
@@ -43,6 +48,9 @@ public class InfiniteListView<T> extends FrameLayout {
     private void init(Context context, AttributeSet attrs){
         View view = inflate(context, R.layout.infinitelistview, this);
 
+        //this.context = context;
+        this.loadingView = LayoutInflater.from(context).inflate(R.layout.item_loading, null, false);
+
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -56,7 +64,7 @@ public class InfiniteListView<T> extends FrameLayout {
         listView = (ListView) view.findViewById(R.id.listView);
         listView.setFooterDividersEnabled(false);
 
-        //XML CONFIG
+        //ATTR CONFIG
         if(attrs != null) {
             TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.InfiniteListView, 0, 0);
 
@@ -82,12 +90,10 @@ public class InfiniteListView<T> extends FrameLayout {
 
     }
 
-    public void init(InfiniteListAdapter<T> infiniteListAdapter, final View loadingView){
+    public void setAdapter(InfiniteListAdapter<T> infiniteListAdapter){
 
         this.infiniteListAdapter = infiniteListAdapter;
         listView.setAdapter(infiniteListAdapter);
-
-        this.loadingView = loadingView;
 
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -133,20 +139,31 @@ public class InfiniteListView<T> extends FrameLayout {
         infiniteListAdapter.addNewItem(newItem);
     }
 
+    public void addAll(List<T> newItems){
+        infiniteListAdapter.addAll(newItems);
+    }
+
     public void clearList(){
         hasMore = false;
         infiniteListAdapter.clearList();
     }
 
     public void startLoading(){
+        //IF FOOTER ALREADY EXISTS, REMOVE IT
+        if(listView.getFooterViewsCount() > 0) {
+            listView.removeFooterView(loadingView);
+        }
+
         loading = true;
-        if(!swipeRefreshLayout.isRefreshing()) {
-            listView.addFooterView(loadingView);
+        //this.loadingView = LayoutInflater.from(context).inflate(R.layout.item_loading, null, false);
+
+        if(!swipeRefreshLayout.isRefreshing() && listView.getFooterViewsCount() == 0) {
+            listView.addFooterView(loadingView, null, false);
         }
     }
 
     public void stopLoading(){
-        if(!swipeRefreshLayout.isRefreshing()) {
+        if(listView.getFooterViewsCount() > 0) {
             listView.removeFooterView(loadingView);
         }
         swipeRefreshLayout.setRefreshing(false);

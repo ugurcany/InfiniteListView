@@ -1,14 +1,13 @@
-package com.izmyr.infinitelistview;
+package com.softw4re.infinitelistview;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 
-import com.izmyr.views.InfiniteListView;
+import com.softw4re.views.InfiniteListView;
 
 import java.util.ArrayList;
 
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout container;
     private InfiniteListView infiniteListView;
 
-    private View loadingView;
     private ArrayList<String> itemList;
     private MyInfiniteListAdapter adapter;
 
@@ -38,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
         itemList = new ArrayList<>();
         adapter = new MyInfiniteListAdapter(this, R.layout.item_text, itemList);
 
-        loadingView = getLayoutInflater().inflate(R.layout.item_loading, null);
-
-        infiniteListView.init(adapter, loadingView);
+        infiniteListView.setAdapter(adapter);
 
         loadNewItems();
     }

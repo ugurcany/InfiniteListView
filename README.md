@@ -17,18 +17,17 @@ See the `app` module for the sample usage of **InfiniteListView** and **Infinite
     - *SwipeRefreshLayout*
     - *ListView*
     
-- Initialize it as follows: `infiniteListView.init(adapter, loadingView);`
+- Set adapter as follows: `infiniteListView.setAdapter(adapter);`
     - `adapter` (*InfiniteListAdapter*)
         - Extend it to create your own adapter
             - Override its `onNewLoadRequired()` method to load new items when required (on swipe-to-bottom)
             - Override its `onRefresh()` method to set what to do on swipe-to-refresh
             - Override its `onItemClick(position)` method to set what to do on item click
             - Override its `onItemLongClick(position)` method to set what to do on item long-click
-    - `loadingView` (*View*)
-        - Footer view to be displayed while loading new items
             
 - Includes the following methods:
     - `infiniteListView.addNewItem(item);` -> adds new item to list
+    - `infiniteListView.addAll(newItems);` -> adds list of new items to list
     - `infiniteListView.clearList();` -> clears entire list
     - `infiniteListView.startLoading();` -> call this before item loading starts
     - `infiniteListView.stopLoading();` -> call this after item loading ends
@@ -73,6 +72,7 @@ dependencies {
     compile 'com.github.ugurcany:InfiniteListView:X.Y.Z'
 }
 ```
+Replace `X.Y.Z` with the latest release version number.
 
 
 
