@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private int itemOffset = 0;
 
     private LinearLayout container;
-    private InfiniteListView infiniteListView;
+    private InfiniteListView<String> infiniteListView;
 
     private ArrayList<String> itemList;
-    private MyInfiniteListAdapter adapter;
+    private MyInfiniteListAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

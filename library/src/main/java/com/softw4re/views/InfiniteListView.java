@@ -2,6 +2,7 @@ package com.softw4re.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -17,8 +18,6 @@ import java.util.List;
  * Created by ugurcan.yildirim on 11.03.2016.
  */
 public class InfiniteListView<T> extends FrameLayout {
-
-    //private Context context;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListView listView;
@@ -48,7 +47,6 @@ public class InfiniteListView<T> extends FrameLayout {
     private void init(Context context, AttributeSet attrs){
         View view = inflate(context, R.layout.infinitelistview, this);
 
-        //this.context = context;
         this.loadingView = LayoutInflater.from(context).inflate(R.layout.item_loading, null, false);
 
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
@@ -136,16 +134,16 @@ public class InfiniteListView<T> extends FrameLayout {
     }
 
     public void addNewItem(T newItem){
-        infiniteListAdapter.addNewItem(newItem);
+        infiniteListAdapter.addNewItem(listView, newItem);
     }
 
     public void addAll(List<T> newItems){
-        infiniteListAdapter.addAll(newItems);
+        infiniteListAdapter.addAll(listView, newItems);
     }
 
     public void clearList(){
         hasMore = false;
-        infiniteListAdapter.clearList();
+        infiniteListAdapter.clearList(listView);
     }
 
     public void startLoading(){
@@ -155,10 +153,17 @@ public class InfiniteListView<T> extends FrameLayout {
         }
 
         loading = true;
-        //this.loadingView = LayoutInflater.from(context).inflate(R.layout.item_loading, null, false);
 
         if(!swipeRefreshLayout.isRefreshing() && listView.getFooterViewsCount() == 0) {
-            listView.addFooterView(loadingView, null, false);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+                listView.addFooterView(loadingView, null, false);
+            }
+            else{
+                listView.setAdapter(null);
+                listView.addFooterView(loadingView, null, false);
+                listView.setAdapter(infiniteListAdapter);
+                listView.setSelection(infiniteListAdapter.getCount() - 1);
+            }
         }
     }
 

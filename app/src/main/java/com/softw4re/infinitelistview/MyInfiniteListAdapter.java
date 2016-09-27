@@ -15,13 +15,11 @@ public class MyInfiniteListAdapter<T> extends InfiniteListAdapter<T> {
     private ArrayList<T> itemList;
 
     public MyInfiniteListAdapter(MainActivity mainActivity, int itemLayoutRes, ArrayList<T> itemList) {
-
         super(mainActivity, itemLayoutRes, itemList);
 
         this.mainActivity = mainActivity;
         this.itemLayoutRes = itemLayoutRes;
         this.itemList = itemList;
-
     }
 
     @Override
